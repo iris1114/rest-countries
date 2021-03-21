@@ -13,7 +13,9 @@ const CardList = ({ countries }) => {
 
 const StyledCardLIst = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-gap: 40px;
+  padding: 40px;
 `;
 
 export default CardList;

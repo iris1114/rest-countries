@@ -20,7 +20,6 @@ const Card = ({ country }) => {
 };
 
 const StledCard = styled.div`
-  margin: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 2px 2px 10px 2px #ccc;
@@ -28,9 +27,12 @@ const StledCard = styled.div`
   .card-img {
     overflow: hidden;
     width: 100%;
-    height: 60%;
+    height: 150px;
+    object-fit: cover;
+    outline: 1px solid #ccc;
 
     img {
+      height: 150px;
       object-fit: cover;
     }
   }
