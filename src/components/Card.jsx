@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { COLOR } from "../utils/style";
 
 const Card = ({ country }) => {
   return (
@@ -20,22 +21,24 @@ const Card = ({ country }) => {
 };
 
 const StledCard = styled.div`
-  border: 1px solid #ccc;
+  border: 1px solid ${COLOR.grey};
   border-radius: 5px;
-  box-shadow: 2px 2px 10px 2px #ccc;
+  box-shadow: 2px 2px 10px 2px ${COLOR.grey};
 
   .card-img {
     overflow: hidden;
     width: 100%;
     height: 150px;
     object-fit: cover;
-    outline: 1px solid #ccc;
+    outline: 1px solid ${COLOR.grey};
+    background-color: ${COLOR.lightGrey};
 
     img {
       height: 150px;
       object-fit: cover;
     }
   }
+
   .card-text {
     padding: 10px;
 
