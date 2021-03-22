@@ -87,10 +87,8 @@ const Detial = ({ countriesData }) => {
               {countryData.borders && countryData.borders.length > 0 ? (
                 countryData.borders.map((border, index) => {
                   return (
-                    <Link to={`/${getCountryName(border)}`}>
-                      <p className="border" key={index}>
-                        {getCountryName(border)}
-                      </p>
+                    <Link to={`/${getCountryName(border)}`} key={index}>
+                      <p className="border">{getCountryName(border)}</p>
                     </Link>
                   );
                 })
@@ -133,7 +131,9 @@ const StyledDetial = styled.main`
 
       img {
         width: 70%;
-        border: 1px solid ${COLOR.grey};
+        border: 1px solid ${COLOR.lightGrey};
+        min-height: 280px;
+        background-color: ${COLOR.lightGrey};
       }
     }
 
@@ -186,6 +186,9 @@ const StyledDetial = styled.main`
   }
 
   @media screen and (max-width: 767px) {
+    .btn {
+      margin-left: 15px;
+    }
     .detials {
       .detial-img,
       .detial-text {

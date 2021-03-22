@@ -4,3 +4,4 @@ export const COLOR = {
   grey: "#ccc",
   lightGrey: "#f2f2f2",
 };
+

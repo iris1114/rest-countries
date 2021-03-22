@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import CardList from "./CardList";
 import Filter from "./Filter";
 
@@ -24,14 +25,18 @@ const Home = ({ countriesData }) => {
   }, [countriesData]);
 
   return (
-    <main>
+    <StyledHome>
       <Filter
         onSearchChange={handleSearchChange}
         onSelectChange={handleSelectChange}
       />
       <CardList countries={filtedCountries} />
-    </main>
+    </StyledHome>
   );
 };
+
+const StyledHome = styled.main`
+  padding: 40px 20px;
+`;
 
 export default Home;
