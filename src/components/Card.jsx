@@ -31,13 +31,13 @@ const StledCard = styled.div`
   .card-img {
     overflow: hidden;
     width: 100%;
-    height: 150px;
+    height: 170px;
     object-fit: cover;
     outline: 1px solid ${COLOR.grey};
     background-color: ${COLOR.lightGrey};
 
     img {
-      height: 150px;
+      height: 100%;
       object-fit: cover;
     }
   }
