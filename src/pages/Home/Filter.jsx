@@ -8,7 +8,7 @@ const Filter = ({ onSearchChange, onSelectChange }) => {
   return (
     <StyledFilter>
       <div className="search-wrap">
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon className="icon" icon={faSearch} />
         <input
           type="text"
           className="search f-lg-m"
@@ -62,6 +62,10 @@ const StyledFilter = styled.div`
     width: 250px;
     padding: 0px 20px;
     background-color: ${COLOR.white};
+
+    .icon {
+      color: ${COLOR.black};
+    }
 
     .search {
       border: 1px solid transparent;

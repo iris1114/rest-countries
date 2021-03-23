@@ -30,8 +30,8 @@ const Header = () => {
 };
 
 const StyledHeader = styled.header`
-  position:sticky;
-  top:0px;
+  position: sticky;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,6 +39,7 @@ const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
   box-shadow: 2px 2px 10px 1px ${(props) => props.theme.shadow};
+  z-index: 1;
 
   h1 {
     color: ${(props) => props.theme.color};
@@ -46,7 +47,7 @@ const StyledHeader = styled.header`
 
   .mode {
     cursor: pointer;
-    
+
     .icon {
       margin-right: 5px;
     }

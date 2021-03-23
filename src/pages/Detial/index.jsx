@@ -130,9 +130,9 @@ const StyledDetial = styled.main`
         margin-right: 5px;
       }
 
-      &:hover{
+      &:hover {
         background-color: ${(props) => props.theme.color};
-        color:${(props) => props.theme.backgroundColor};
+        color: ${(props) => props.theme.backgroundColor};
       }
     }
 
@@ -143,12 +143,16 @@ const StyledDetial = styled.main`
 
       .detial-img {
         width: 50%;
+        height: 280px;
+        object-fix: cover;
 
         img {
           width: 70%;
           border: 1px solid ${COLOR.lightGrey};
           min-height: 280px;
           background-color: ${COLOR.lightGrey};
+          height: 280px;
+          object-fit: cover;
         }
       }
 
@@ -193,7 +197,7 @@ const StyledDetial = styled.main`
 
               &:hover {
                 background-color: ${(props) => props.theme.color};
-                color:${(props) => props.theme.backgroundColor};
+                color: ${(props) => props.theme.backgroundColor};
               }
             }
           }

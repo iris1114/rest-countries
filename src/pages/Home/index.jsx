@@ -41,6 +41,7 @@ const StyledHome = styled.main`
   padding: 40px 20px;
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
+  min-height: 100vh;
 `;
 
 export default Home;
