@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../utils/themeContext";
 import CardList from "./CardList";
 import Filter from "./Filter";
 
 const Home = ({ countriesData }) => {
   const [filtedCountries, setFiltedCountries] = useState(countriesData);
+  const { theme } = useContext(ThemeContext);
 
   const handleSearchChange = (value) => {
     const filteredItems = countriesData.filter((country) => {
@@ -25,7 +27,7 @@ const Home = ({ countriesData }) => {
   }, [countriesData]);
 
   return (
-    <StyledHome>
+    <StyledHome theme={theme}>
       <Filter
         onSearchChange={handleSearchChange}
         onSelectChange={handleSelectChange}
@@ -37,6 +39,8 @@ const Home = ({ countriesData }) => {
 
 const StyledHome = styled.main`
   padding: 40px 20px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.color};
 `;
 
 export default Home;

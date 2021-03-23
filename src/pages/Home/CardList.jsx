@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Card from "../../components/Card";
 
 const CardList = ({ countries }) => {
+  
   return (
     <StyledCardLIst>
       {countries.map((country, index) => {

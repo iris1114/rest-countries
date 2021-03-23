@@ -61,6 +61,7 @@ const StyledFilter = styled.div`
     height: 40px;
     width: 250px;
     padding: 0px 20px;
+    background-color: ${COLOR.white};
 
     .search {
       border: 1px solid transparent;

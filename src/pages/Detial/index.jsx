@@ -5,11 +5,14 @@ import { useCountry } from "../../utils/hooks";
 import { COLOR } from "../../utils/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { ThemeContext } from "../../utils/themeContext";
 
 const Detial = ({ countriesData }) => {
   const countryName = useParams();
   const { countryData } = useCountry(countryName.country);
   const history = useHistory();
+  const { theme } = useContext(ThemeContext);
 
   const getCountryName = (border) => {
     for (const country of countriesData) {
@@ -24,77 +27,79 @@ const Detial = ({ countriesData }) => {
   };
 
   return (
-    <StyledDetial>
-      <div className="btn" onClick={handleBackClick}>
-        <FontAwesomeIcon icon={faArrowLeft} className="icon" />
-        <span>Back</span>
-      </div>
-      <div className="detials">
-        <div className="detial-img">
-          <img src={countryData.flag} alt={countryData.name} />
+    <StyledDetial theme={theme}>
+      <div className="container">
+        <div className="btn" onClick={handleBackClick}>
+          <FontAwesomeIcon icon={faArrowLeft} className="icon" />
+          <span>Back</span>
         </div>
-        <div className="detial-text">
-          <h1 className="f-lg-2xl f-xl">{countryData.name}</h1>
-          <div className="descs">
-            <div className="desc-block">
-              <div className="desc">
-                <h3>Population: </h3>
-                <p>{countryData.population}</p>
-              </div>
-
-              <div className="desc">
-                <h3>Region: </h3>
-                <p>{countryData.region}</p>
-              </div>
-
-              <div className="desc">
-                <h3>Capital: </h3>
-                <p>{countryData.capital}</p>
-              </div>
-            </div>
-            <div className="desc-block">
-              <div className="desc">
-                <h3>Sub Region: </h3>
-                <p>{countryData.subregion}</p>
-              </div>
-
-              <div className="desc">
-                <h3>Top Level Domain: </h3>
-                <p>{countryData.topLevelDomain}</p>
-              </div>
-
-              <div className="desc">
-                <h3>Currencies: </h3>
-                {countryData.currencies &&
-                  countryData.currencies.map((currency, index) => {
-                    return <p key={index}>{currency.name}</p>;
-                  })}
-              </div>
-
-              <div className="desc">
-                <h3>Languages: </h3>
-                {countryData.languages &&
-                  countryData.languages.map((language, index) => {
-                    return <p key={index}>{language.name}</p>;
-                  })}
-              </div>
-            </div>
+        <div className="detials">
+          <div className="detial-img">
+            <img src={countryData.flag} alt={countryData.name} />
           </div>
+          <div className="detial-text">
+            <h1 className="f-lg-2xl f-xl">{countryData.name}</h1>
+            <div className="descs">
+              <div className="desc-block">
+                <div className="desc">
+                  <h3>Population: </h3>
+                  <p>{countryData.population}</p>
+                </div>
 
-          <div className="borders-wrap">
-            <h3>Border Countries:</h3>
-            <div className="borders">
-              {countryData.borders && countryData.borders.length > 0 ? (
-                countryData.borders.map((border, index) => {
-                  return (
-                    <Link to={`/${getCountryName(border)}`} key={index}>
-                      <p className="border">{getCountryName(border)}</p>
-                    </Link>
-                  );
-                })
-              ) : (
-                <p>None</p>
-              )}
+                <div className="desc">
+                  <h3>Region: </h3>
+                  <p>{countryData.region}</p>
+                </div>
+
+                <div className="desc">
+                  <h3>Capital: </h3>
+                  <p>{countryData.capital}</p>
+                </div>
+              </div>
+              <div className="desc-block">
+                <div className="desc">
+                  <h3>Sub Region: </h3>
+                  <p>{countryData.subregion}</p>
+                </div>
+
+                <div className="desc">
+                  <h3>Top Level Domain: </h3>
+                  <p>{countryData.topLevelDomain}</p>
+                </div>
+
+                <div className="desc">
+                  <h3>Currencies: </h3>
+                  {countryData.currencies &&
+                    countryData.currencies.map((currency, index) => {
+                      return <p key={index}>{currency.name}</p>;
+                    })}
+                </div>
+
+                <div className="desc">
+                  <h3>Languages: </h3>
+                  {countryData.languages &&
+                    countryData.languages.map((language, index) => {
+                      return <p key={index}>{language.name}</p>;
+                    })}
+                </div>
+              </div>
+            </div>
+
+            <div className="borders-wrap">
+              <h3>Border Countries:</h3>
+              <div className="borders">
+                {countryData.borders && countryData.borders.length > 0 ? (
+                  countryData.borders.map((border, index) => {
+                    return (
+                      <Link to={`/${getCountryName(border)}`} key={index}>
+                        <p className="border">{getCountryName(border)}</p>
+                      </Link>
+                    );
+                  })
+                ) : (
+                  <p>None</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -104,80 +109,92 @@ const Detial = ({ countriesData }) => {
 };
 
 const StyledDetial = styled.main`
-  max-width: 1200px;
-  margin: auto;
-  padding-top: 50px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.color};
+  height: 100vh;
 
-  .btn {
-    padding: 10px 20px;
-    border: 1px solid ${COLOR.grey};
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 50px;
-    cursor: pointer;
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 50px;
 
-    .icon {
-      margin-right: 5px;
-    }
-  }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid ${COLOR.grey};
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 50px;
+      cursor: pointer;
 
-  .detials {
-    display: flex;
-    flex-wrap: wrap;
-    justify-contents: center;
+      .icon {
+        margin-right: 5px;
+      }
 
-    .detial-img {
-      width: 50%;
-
-      img {
-        width: 70%;
-        border: 1px solid ${COLOR.lightGrey};
-        min-height: 280px;
-        background-color: ${COLOR.lightGrey};
+      &:hover{
+        background-color: ${(props) => props.theme.color};
+        color:${(props) => props.theme.backgroundColor};
       }
     }
 
-    .detial-text {
-      width: 50%;
-      line-height: 24px;
+    .detials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-contents: center;
 
-      h1 {
-        margin-bottom: 20px;
-      }
+      .detial-img {
+        width: 50%;
 
-      h3 {
-        margin-right: 10px;
-      }
-
-      .descs {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-
-      .desc-block {
-        margin-right: 20px;
-        .desc {
-          display: flex;
-          flex-wrap: wrap;
+        img {
+          width: 70%;
+          border: 1px solid ${COLOR.lightGrey};
+          min-height: 280px;
+          background-color: ${COLOR.lightGrey};
         }
       }
 
-      .borders-wrap {
-        .borders {
+      .detial-text {
+        width: 50%;
+        line-height: 24px;
+
+        h1 {
+          margin-bottom: 20px;
+        }
+
+        h3 {
+          margin-right: 10px;
+        }
+
+        .descs {
           display: flex;
           flex-wrap: wrap;
+          margin-bottom: 20px;
+        }
 
-          .border {
-            padding: 5px 10px;
-            border: 1px solid ${COLOR.grey};
-            border-radius: 5px;
-            margin-right: 10px;
-            margin-top: 10px;
+        .desc-block {
+          margin-right: 20px;
+          .desc {
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
 
-            &:hover {
-              background-color: ${COLOR.black};
-              color: ${COLOR.white};
+        .borders-wrap {
+          .borders {
+            display: flex;
+            flex-wrap: wrap;
+
+            .border {
+              padding: 5px 10px;
+              border: 1px solid ${COLOR.grey};
+              border-radius: 5px;
+              margin-right: 10px;
+              margin-top: 10px;
+              color: ${(props) => props.theme.color};
+
+              &:hover {
+                background-color: ${(props) => props.theme.color};
+                color:${(props) => props.theme.backgroundColor};
+              }
             }
           }
         }

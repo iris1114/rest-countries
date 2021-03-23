@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { COLOR } from "../utils/style";
+import { ThemeContext } from "../utils/themeContext";
 
 const Card = ({ country }) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <StledCard>
+    <StledCard theme={theme}>
       <Link to={`/${country.name}`}>
         <div className="card-img">
           <img src={country.flag} alt={country.name} />
@@ -23,7 +26,7 @@ const Card = ({ country }) => {
 const StledCard = styled.div`
   border: 1px solid ${COLOR.grey};
   border-radius: 5px;
-  box-shadow: 2px 2px 10px 2px ${COLOR.grey};
+  box-shadow: 2px 2px 10px 2px ${(props) => props.theme.shadow};
 
   .card-img {
     overflow: hidden;
@@ -41,6 +44,7 @@ const StledCard = styled.div`
 
   .card-text {
     padding: 10px;
+    color: ${(props) => props.theme.color};
 
     .name {
       font-weight: 700;
