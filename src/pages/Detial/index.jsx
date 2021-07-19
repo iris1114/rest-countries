@@ -116,7 +116,11 @@ const StyledDetial = styled.main`
   .container {
     max-width: 1200px;
     margin: auto;
-    padding-top: 50px;
+    padding: 50px 20px;
+
+    @media (min-width: 767px) and (max-width: 1024px) {
+      padding: 50px 40px;
+    }
 
     .btn {
       padding: 10px 20px;
@@ -152,7 +156,9 @@ const StyledDetial = styled.main`
 
         @media screen and (max-width: 767px) {
           width: 100%;
+          height: 100%;
           padding: 0 15px;
+          margin-bottom: 50px;
         }
 
         img {
