@@ -12,7 +12,7 @@ const Filter = ({ onSearchChange, onSelectChange }) => {
         <input
           type="text"
           className="search f-lg-m"
-          placeholder="search for a country"
+          placeholder="search for a country test"
           onChange={(e) => {
             onSearchChange && onSearchChange(e.target.value);
           }}
