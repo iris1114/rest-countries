@@ -48,10 +48,14 @@ const Filter = ({ onSearchChange, onSelectChange }) => {
 
 const StyledFilter = styled.div`
   display: flex;
-  padding: 40px 20px;
+  padding: 40px 40px;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+
+  @media screen and (max-width: 767px) {
+    padding: 40px 20px;
+  }
 
   .search-wrap {
     border: 1px solid ${COLOR.grey};
