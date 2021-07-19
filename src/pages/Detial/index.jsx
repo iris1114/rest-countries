@@ -23,7 +23,7 @@ const Detial = ({ countriesData }) => {
   };
 
   const handleBackClick = () => {
-    history.goBack();
+    history.push("/");
   };
 
   return (

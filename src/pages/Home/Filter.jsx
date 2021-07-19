@@ -48,7 +48,7 @@ const Filter = ({ onSearchChange, onSelectChange }) => {
 
 const StyledFilter = styled.div`
   display: flex;
-  padding: 40px 40px;
+  padding: 40px 20px;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
@@ -78,6 +78,7 @@ const StyledFilter = styled.div`
     position: relative;
     border: 1px solid ${COLOR.grey};
     border-radius: 5px;
+    background-color: ${COLOR.white};
 
     select {
       height: 40px;
@@ -103,11 +104,14 @@ const StyledFilter = styled.div`
     .search-wrap {
       width: 100%;
       margin-bottom: 20px;
+      min-width: 200px;
     }
     .select-wrap {
       width: 100%;
+      min-width: 250px;
       select {
         width: 100%;
+        min-width: 250px;
       }
     }
   }
