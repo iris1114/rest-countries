@@ -35,7 +35,9 @@ const Detial = ({ countriesData }) => {
         </div>
         <div className="detials">
           <div className="detial-img">
-            <img src={countryData.flag} alt={countryData.name} />
+            <div className="img-wrap">
+              <img src={countryData.flag} alt={countryData.name} />
+            </div>
           </div>
           <div className="detial-text">
             <h1 className="f-lg-2xl f-xl">{countryData.name}</h1>
@@ -151,24 +153,36 @@ const StyledDetial = styled.main`
 
       .detial-img {
         width: 50%;
-        height: 280px;
-        object-fix: cover;
 
         @media screen and (max-width: 767px) {
           width: 100%;
-          height: 100%;
-          padding: 0 15px;
-          margin-bottom: 50px;
         }
 
-        img {
+        .img-wrap {
           width: 70%;
-          border: 1px solid ${COLOR.lightGrey};
-          background-color: ${COLOR.lightGrey};
-          object-fit: cover;
+          height: 280px;
+
+          @media (min-width: 992px) and (max-width: 1024px) {
+            width: 70%;
+            height: 180px;
+          }
+          @media (min-width: 768px) and (max-width: 991px) {
+            width: 80%;
+            height: 150px;
+          }
 
           @media screen and (max-width: 767px) {
             width: 100%;
+            height: 200px;
+            margin-bottom: 50px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            border: 1px solid ${COLOR.lightGrey};
+            background-color: ${COLOR.lightGrey};
+            object-fit: cover;
           }
         }
       }
