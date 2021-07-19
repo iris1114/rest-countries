@@ -111,7 +111,7 @@ const Detial = ({ countriesData }) => {
 const StyledDetial = styled.main`
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
-  height: 100vh;
+  min-height: 100vh;
 
   .container {
     max-width: 1200px;
@@ -125,6 +125,10 @@ const StyledDetial = styled.main`
       display: inline-block;
       margin-bottom: 50px;
       cursor: pointer;
+
+      @media screen and (max-width: 767px) {
+        margin-left: 15px;
+      }
 
       .icon {
         margin-right: 5px;
@@ -146,19 +150,32 @@ const StyledDetial = styled.main`
         height: 280px;
         object-fix: cover;
 
+        @media screen and (max-width: 767px) {
+          width: 100%;
+          padding: 0 15px;
+        }
+
         img {
           width: 70%;
           border: 1px solid ${COLOR.lightGrey};
-          min-height: 280px;
           background-color: ${COLOR.lightGrey};
-          height: 280px;
           object-fit: cover;
+
+          @media screen and (max-width: 767px) {
+            width: 100%;
+          }
         }
       }
 
       .detial-text {
         width: 50%;
         line-height: 24px;
+
+        @media screen and (max-width: 767px) {
+          width: 100%;
+          padding: 0px 15px;
+          margin-bottom: 30px;
+        }
 
         h1 {
           margin-bottom: 20px;
@@ -201,24 +218,6 @@ const StyledDetial = styled.main`
               }
             }
           }
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    .btn {
-      margin-left: 15px;
-    }
-    .detials {
-      .detial-img,
-      .detial-text {
-        width: 100%;
-        padding: 0px 15px;
-        margin-bottom: 30px;
-
-        img {
-          width: 100%;
         }
       }
     }
